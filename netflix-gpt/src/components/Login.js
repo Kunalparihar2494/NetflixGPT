@@ -1,11 +1,20 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Header from "./Header";
+import { checkValidateData } from "../utils/Validate";
 
 const Login = () => {
   const [isSignForm, setSignInForm] = useState(true);
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  const email = useRef(null);
+  const password = useRef(null);
 
   const toggleSignInform = () => {
     setSignInForm(!isSignForm);
+  };
+
+  const handleButtonClick = () => {
+    setErrorMessage(checkValidateData(email.current.value, password.current.value));
   };
 
   return (
@@ -21,25 +30,34 @@ const Login = () => {
         <span className="text-white relative top-8 left-[3rem] text-4xl font-bold">
           {isSignForm ? "Sign In" : "Sign Up"}
         </span>
-        <form className="p-12 mt-4 flex flex-col">
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className="p-12 mt-4 flex flex-col"
+        >
           {!isSignForm && (
             <input
               type="text"
               placeholder="Full Name"
-              className="p-4 my-4 w-full rounded-md"
+              className="p-4 my-4 w-full rounded-md bg-gray-500"
             />
           )}
           <input
+            ref={email}
             type="text"
             placeholder="Email or Mobile Number"
-            className="p-4 my-4 w-full rounded-md"
+            className="p-4 my-4 w-full rounded-md  bg-gray-500"
           />
           <input
+            ref={password}
             type="password"
             placeholder="Password"
-            className="p-4 my-4 w-full rounded-md"
+            className="p-4 my-4 w-full rounded-md  bg-gray-500"
           />
-          <button className="p-3 my-4 w-full bg-red-500 rounded-md">
+          <p className="text-red-800 font-bold p-2 text-lg">{errorMessage}</p>
+          <button
+            className="p-3 my-4 w-full bg-red-500 rounded-md"
+            onClick={handleButtonClick}
+          >
             {isSignForm ? "Sign In" : "Sign Up"}
           </button>
           <p
