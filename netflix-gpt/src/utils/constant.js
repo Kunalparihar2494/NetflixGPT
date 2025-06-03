@@ -4,6 +4,10 @@ export const API_OPTIONS = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNzJlYjY0NTQ3ZWIzZmEwNTRmMDhiYTdlNjIxMGVlNCIsIm5iZiI6MTc0ODQwNjQyNS42MDQsInN1YiI6IjY4MzY5MDk5NDk4ZjI0OTdhODczMTRkNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.dvPPy_XdKAXgA1kejp-uwzPgPJmUnJnks3hPZw7cTqU'
+    Authorization: 'Bearer ' + process.env.REACT_APP_TNDB_KEY
   }
 };
+
+export const OPENAI_KEY = process.env.REAT_APP_OPENAI_KEY
+
+export const HUGGING_API_KEY = process.env.REAT_APP_HUGGING_API_KEY
