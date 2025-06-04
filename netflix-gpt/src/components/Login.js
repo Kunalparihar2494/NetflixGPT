@@ -58,11 +58,12 @@ const Login = () => {
       <Header />
       <div className="absolute">
         <img
+           className="h-screen w-screen"
           src={BG_URL}
           alt="bg"
         />
       </div>
-      <div className="w-3/12 absolute mt-[14rem] ml-[45rem] bg-black opacity-80">
+      <div className="w-full md:w-3/12 absolute mt-[14rem] md:ml-[45rem] bg-black opacity-80">
         <span className="text-white relative top-8 left-[3rem] text-4xl font-bold">
           {isSignForm ? "Sign In" : "Sign Up"}
         </span>

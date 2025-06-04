@@ -5,20 +5,17 @@ import { BG_URL } from "../utils/images";
 import { useSelector } from "react-redux";
 
 const GptSearch = () => {
-    const gptResult = useSelector((store) => store?.gptSearch?.gptMovies);
+  const gptResult = useSelector((store) => store?.gptSearch?.gptMovies);
   return (
-    <div>
+    <>
       <div className="fixed -z-10">
-        <img
-          src={BG_URL}
-          alt="bg"
-        />
+        <img className="h-screen object-cover w-screen" src={BG_URL} alt="bg" />
       </div>
-      <GPTSearchBar />
-      {gptResult && 
-      <GPTSearchPage /> }
-      
-    </div>
+      <div className="pt-[30%] md:pt-0">
+        <GPTSearchBar />
+        {gptResult && <GPTSearchPage />}
+      </div>
+    </>
   );
 };
 

@@ -8,6 +8,6 @@ export const API_OPTIONS = {
   }
 };
 
-export const OPENAI_KEY = process.env.REAT_APP_OPENAI_KEY
+export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY
 
-export const HUGGING_API_KEY = process.env.REAT_APP_HUGGING_API_KEY
+export const HUGGING_API_KEY = process.env.REACT_APP_HUGGING_API_KEY
